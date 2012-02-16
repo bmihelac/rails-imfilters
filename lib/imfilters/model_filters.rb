@@ -35,16 +35,31 @@ module Imfilters
           end
 
           options[:type] ||= :like
+          type = options[:type]
           self.filters_configuration[filter] = options
 
-          case options[:type]
+          case type
           when :like
             condition = lambda {|val| "LIKE(#{quote_value('%' + val + '%')})"}
+          when :eq
+            condition = lambda {|val| " = #{quote_value(val)}"}
+          when :from_date
+            condition = lambda {|val|
+              " <= #{quote_value(Date.parse(val))}"
+            }
+          when :to_date
+            # handle comparing date and datetime
+            condition = lambda {|val|
+              " <= #{quote_value(Date.parse(val).to_datetime.end_of_day)}"
+            }
           else
             raise "Not known type"
           end
 
-          self.scope "filter_by_%s" % name,
+          scope_name = "filter_by_#{name}"
+          scope_name << "_#{type}" unless type == :like
+
+          self.scope scope_name,
             lambda { |val|
               joins(joins).where("#{target_class.table_name}.#{field} #{condition.call(val)}")
             }
