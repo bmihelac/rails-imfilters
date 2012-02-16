@@ -1,0 +1,8 @@
+kurt:
+  first_name: Kurt
+  last_name: Vonnegut
+  country: usa
+
+two:
+  first_name: MyString
+  last_name: MyString
