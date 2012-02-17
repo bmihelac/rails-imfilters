@@ -1,4 +1,5 @@
-= Imfilters
+Imfilters
+=========
 
 Create named scopes for filtering.
 
