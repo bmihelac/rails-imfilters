@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "Create named scopes for filtering"
   s.description = "Create named scopes for filtering"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rst"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", ">= 3.1.0", "< 4.0.0"
