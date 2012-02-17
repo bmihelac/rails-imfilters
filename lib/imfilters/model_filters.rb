@@ -34,9 +34,7 @@ module Imfilters
             field = name = filter
           end
 
-          options[:type] ||= :like
-          type = options[:type]
-          self.filters_configuration[filter] = options
+          type = options[:type] || :like
 
           case type
           when :like
@@ -58,6 +56,13 @@ module Imfilters
 
           scope_name = "filter_by_#{name}"
           scope_name << "_#{type}" unless type == :like
+
+          self.filters_configuration[filter]  = {
+            :type => type,
+            :target_class => target_class,
+            :field => field,
+            :scope_name => scope_name
+          }
 
           self.scope scope_name,
             lambda { |val|
