@@ -56,8 +56,9 @@ module Imfilters
 
           scope_name = "filter_by_#{name}"
           scope_name << "_#{type}" unless type == :like
+          scope_name = scope_name.to_sym
 
-          self.filters_configuration[filter]  = {
+          self.filters_configuration[scope_name]  = {
             :type => type,
             :target_class => target_class,
             :field => field,

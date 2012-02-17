@@ -27,13 +27,16 @@ class ModelFiltersTest < ActiveSupport::TestCase
 
   def test_filter_configuration
     conf = Book.filters_configuration
-    assert_equal conf.size, 4
+    assert_equal conf.size, 5
     assert_equal({
       :type => :like,
       :target_class => Book,
       :field => :name,
-      :scope_name => "filter_by_name"
-    }, conf[:name])
+      :scope_name => :filter_by_name
+    }, conf[:filter_by_name])
+
+    assert_equal Author, conf[:filter_by_author_first_name][:target_class]
+      
   end
 
 end
