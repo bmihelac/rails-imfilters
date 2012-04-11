@@ -43,7 +43,7 @@ module Imfilters
             condition = lambda {|val| " = #{quote_value(val)}"}
           when :from_date
             condition = lambda {|val|
-              " <= #{quote_value(Date.parse(val))}"
+              " >= #{quote_value(Date.parse(val))}"
             }
           when :to_date
             # handle comparing date and datetime
