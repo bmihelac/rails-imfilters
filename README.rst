@@ -18,4 +18,7 @@ Create named scopes for filtering.
       # 'authors.first_name LIKE(?)', "%%#{val}%%")}
       model_filter [:author, :first_name]
       model_filter [:author, :country, :name]
+
+      # gte, lte, gt, lt, eq
+      model_filter :year_published, :type => [:gte, :lte, :gt, :lt, :eq]
     end
