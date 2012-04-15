@@ -3,8 +3,7 @@ class Book < ActiveRecord::Base
 
   model_filter :name
 
-  model_filter :published_on, :type => :to_date
-  model_filter :published_on, :type => :from_date
+  model_filter :published_on, :type => [:to_date, :from_date]
 
   # nested scope
   # scope 'filter_by_author_first_name', lambda {|val| joins(:author).where(
