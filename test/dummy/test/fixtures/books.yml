@@ -4,6 +4,7 @@ cats_cradle:
   published_on: 1963-08-13
   active: false
   content: MyText
+  year_published: 1963
 
 ham_on_rye:
   name: Ham on Rye
@@ -11,3 +12,4 @@ ham_on_rye:
   published_on: 2012-02-16
   active: false
   content: MyText
+  year_published: 2012

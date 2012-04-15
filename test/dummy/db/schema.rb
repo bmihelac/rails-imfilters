@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(:version => 20120216154741) do
     t.date     "published_on"
     t.boolean  "active"
     t.text     "content"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer  "year_published"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "countries", :force => true do |t|

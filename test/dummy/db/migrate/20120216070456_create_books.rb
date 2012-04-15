@@ -6,6 +6,7 @@ class CreateBooks < ActiveRecord::Migration
       t.date :published_on
       t.boolean :active
       t.text :content
+      t.integer :year_published
 
       t.timestamps
     end
