@@ -3,6 +3,6 @@ kurt:
   last_name: Vonnegut
   country: usa
 
-two:
-  first_name: MyString
-  last_name: MyString
+bukowski:
+  first_name: Bukowski
+  last_name: Charles

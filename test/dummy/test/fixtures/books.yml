@@ -8,7 +8,7 @@ cats_cradle:
 
 ham_on_rye:
   name: Ham on Rye
-  author_id: 2
+  author: bukowski
   published_on: 2012-02-16
   active: false
   content: MyText

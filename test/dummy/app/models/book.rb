@@ -13,4 +13,7 @@ class Book < ActiveRecord::Base
 
   # gte, lte, gt, lt, eq
   model_filter :year_published, :type => [:gte, :lte, :gt, :lt, :eq]
+
+  # in
+  model_filter :author_id, :type => :in
 end

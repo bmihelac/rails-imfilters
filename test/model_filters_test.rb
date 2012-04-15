@@ -33,6 +33,13 @@ class ModelFiltersTest < ActiveSupport::TestCase
     assert Book.filter_by_year_published_lte(1963).include?(books(:cats_cradle))
   end
 
+  def test_in_filter
+    author_ids = [authors(:kurt).id, authors(:bukowski).id]
+    books = Book.filter_by_author_id_in(author_ids)
+    assert books.include?(books(:cats_cradle))
+    assert books.include?(books(:ham_on_rye))
+  end
+
   def test_filter_configuration
     conf = Book.filters_configuration
     assert_equal({

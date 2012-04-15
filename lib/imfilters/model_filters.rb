@@ -58,6 +58,11 @@ module Imfilters module ModelFilters
               condition = lambda {|val|
                 " <= #{quote_value(Date.parse(val).to_datetime.end_of_day)}"
               }
+            when :in
+              condition = lambda {|val|
+                quoted = val.map{|v| quote_value(v)}.join(', ')
+                " IN (#{quoted})"
+              }
             when *STANDARD_OPS.keys
               op = STANDARD_OPS[type]
               condition = lambda {|val| " #{op} #{quote_value(val)}" }
